@@ -46,10 +46,34 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
+# Edited for TWRP Recovery
 DEVICE_RESOLUTION := 1440x2560
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_NO_USB_STORAGE := true
 TW_INCLUDE_JB_CRYPTO := true
+TW_INCLUDE_CRYPTO := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
+TW_BRIGHTNESS_PATH := "/sys/devices/mdp.0/qcom\x2cmdss_fb_primary.175/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_SCREEN_BLANK_ON_BOOT := true
+# TW_NO_SCREEN_TIMEOUT := false
+
+# MultiROM
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/lge/f400/multirom/mr_init_devices.c
+MR_RD_ADDR := 0x2200000
+MR_DPI := xhdpi
+MR_DPI_MUL := 1.5
+MR_FSTAB := device/lge/f400/twrp.fstab
+MR_KEXEC_MEM_MIN := 0x0ff00000
+MR_KEXEC_DTB := true
+MR_USE_MROM_FSTAB := true
+MR_DPI_FONT := 420
+MR_DEFAULT_BRIGHTNESS := 80
+#MR_CONTINUOUS_FB_UPDATE := true
+
+#MultiRom Hooks, So that we can run stock roms as secondary
+MR_DEVICE_HOOKS := device/lge/f400/mr_hooks.c
+MR_DEVICE_HOOKS_VER := 4
